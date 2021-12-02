@@ -14,6 +14,10 @@ const MAX_SLOPE = 40
 var camera
 var rotation_helper
 var mouse_sensitivity = 0.05
+const MAX_SPRINT = 30
+const SPRINT_ACCEL = 18
+var sprinting = false 
+var flashlight 
 
 var dir = Vector3()
 
@@ -22,6 +26,7 @@ func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	flashlight = $Rotation_Helper/Flashlight
 #so far enjoying gdscript, it codes like butter except i HATE_THIS_CASE_SHIT
 func process_input(delta):
 	#walking
@@ -54,6 +59,16 @@ func process_input(delta):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			
+	if Input.is_action_pressed("movement_sprint"):
+		sprinting = true 
+	else:
+		sprinting = false
+	
+	if Input.is_action_just_pressed("flashlight"):
+		if flashlight.is_visible_in_tree():
+			flashlight.hide()
+		else:
+			flashlight.show()
 	
 func process_movement(delta):
 	dir.y = 0
@@ -72,6 +87,16 @@ func process_movement(delta):
 	vel.x = hvel.x
 	vel.z = hvel.z
 	vel = move_and_slide(vel, Vector3(0,1,0),0.05,4,deg2rad(MAX_SLOPE))
+	if sprinting:
+		target *= MAX_SPRINT
+	else:
+		target *= MAX_SPEED
+	#the tutorial seperates this out into another if block but i think it could be combined with the above
+	#i'll follow the tutorial and make changes later.
+	if sprinting:
+		accel = SPRINT_ACCEL
+	else:
+		accel = ACCEL
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
