@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://playa.tscn" type="PackedScene" id=3]
+[ext_resource path="res://prototypeTextures/darkgrid.tres" type="Material" id=4]
+
+[node name="Proto" type="Spatial"]
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="Floor" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.67641, 0 )
+width = 30.0
+height = 10.0
+depth = 40.0
+material = ExtResource( 4 )
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.57314, 0 )
+operation = 2
+width = 28.0
+height = 9.0
+depth = 38.0
+material = ExtResource( 4 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -3.41662e-09, -0.414423, -0.910084, -4.35777e-08, -0.910084, 0.414423, -1, 4.10753e-08, -1.49502e-08, -20.8598, 21.6836, -5.47439 )
+
+[node name="Playa" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.994, 7.45363, 1.983 )
