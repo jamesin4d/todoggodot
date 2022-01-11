@@ -1,0 +1,230 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Leaf",
+"class": "ActionLeaf",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/leaves/action.gd"
+}, {
+"base": "Decorator",
+"class": "AlwaysFailDecorator",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/decorators/failer.gd"
+}, {
+"base": "Decorator",
+"class": "AlwaysSucceedDecorator",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/decorators/succeeder.gd"
+}, {
+"base": "Node",
+"class": "BehaviorTree",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/behavior_tree.gd"
+}, {
+"base": "BehaviorTree",
+"class": "BehaviorTreeNode",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/bt_node.gd"
+}, {
+"base": "BehaviorTree",
+"class": "BehaviorTreeRoot",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/bt_root.gd"
+}, {
+"base": "BehaviorTreeNode",
+"class": "Composite",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/composites/composite.gd"
+}, {
+"base": "Leaf",
+"class": "ConditionLeaf",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/leaves/condition.gd"
+}, {
+"base": "BehaviorTreeNode",
+"class": "Decorator",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/decorators/decorator.gd"
+}, {
+"base": "ResourceFormatLoader",
+"class": "HTerrainDataLoader",
+"language": "GDScript",
+"path": "res://addons/zylann.hterrain/hterrain_resource_loader.gd"
+}, {
+"base": "ResourceFormatSaver",
+"class": "HTerrainDataSaver",
+"language": "GDScript",
+"path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
+}, {
+"base": "Decorator",
+"class": "InverterDecorator",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/decorators/inverter.gd"
+}, {
+"base": "BehaviorTreeNode",
+"class": "Leaf",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/leaves/leaf.gd"
+}, {
+"base": "Decorator",
+"class": "LimiterDecorator",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/decorators/limiter.gd"
+}, {
+"base": "RigidBody",
+"class": "Protoprop",
+"language": "GDScript",
+"path": "res://scripts/protoprop.gd"
+}, {
+"base": "Composite",
+"class": "SelectorComposite",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/composites/selector.gd"
+}, {
+"base": "Composite",
+"class": "SequenceComposite",
+"language": "GDScript",
+"path": "res://addons/behavior_tree/nodes/composites/sequence.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://addons/fsm/state.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://addons/fsm/state_machine.gd"
+} ]
+_global_script_class_icons={
+"ActionLeaf": "res://addons/behavior_tree/icons/action.png",
+"AlwaysFailDecorator": "res://addons/behavior_tree/icons/fail.png",
+"AlwaysSucceedDecorator": "res://addons/behavior_tree/icons/succeed.png",
+"BehaviorTree": "",
+"BehaviorTreeNode": "res://addons/behavior_tree/icons/action.png",
+"BehaviorTreeRoot": "res://addons/behavior_tree/icons/tree.png",
+"Composite": "res://addons/behavior_tree/icons/category_composite.png",
+"ConditionLeaf": "res://addons/behavior_tree/icons/condition.png",
+"Decorator": "res://addons/behavior_tree/icons/category_decorator.png",
+"HTerrainDataLoader": "",
+"HTerrainDataSaver": "",
+"InverterDecorator": "res://addons/behavior_tree/icons/inverter.png",
+"Leaf": "res://addons/behavior_tree/icons/action.png",
+"LimiterDecorator": "res://addons/behavior_tree/icons/limiter.png",
+"Protoprop": "",
+"SelectorComposite": "res://addons/behavior_tree/icons/selector.png",
+"SequenceComposite": "res://addons/behavior_tree/icons/sequencer.png",
+"State": "res://addons/fsm/icons/state.png",
+"StateMachine": "res://addons/fsm/icons/state_machine.png"
+}
+
+[application]
+
+config/name="Hoast"
+run/main_scene="res://levels/proto_01/proto_01.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1080
+window/size/height=960
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/behavior_tree/plugin.cfg", "res://addons/fsm/plugin.cfg" )
+
+[global]
+
+layer=false
+
+[input]
+
+movement_forward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+movement_backward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+movement_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+movement_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+movement_jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+movement_sprint={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+mouse_input={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":true,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777244,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+movement_crouch={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777238,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+LMB={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+mouse_wheel_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+mouse_wheel_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+inspect={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":84,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="World"
+3d_physics/layer_3="Props"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+3d/physics_engine="Bullet"
+
+[rendering]
+
+quality/subsurface_scattering/quality=2
+environment/default_environment="res://default_env.tres"
